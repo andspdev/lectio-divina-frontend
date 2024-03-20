@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import { Context } from '../includes/GlobalState'
+import { Context } from '../../includes/GlobalState'
 
-import ImageInternalServerError from '../assets/images/svg/maintenance-illustration.svg'
+import ImageInternalServerError from '../../assets/images/svg/maintenance-illustration.svg'
 
 const InternalServerError = () =>
 {
@@ -15,7 +15,7 @@ const InternalServerError = () =>
     }
 
     return(
-        <div className="internal-server-error text-center">
+        <div className="content-center-full text-center">
             <img src={ImageInternalServerError} alt="Internal Server Error" className='mb-4' />
             <h3 className='title'>Oops, something went wrong</h3>
 
