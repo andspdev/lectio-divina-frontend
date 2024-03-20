@@ -1,0 +1,7 @@
+#nprogress .bar {
+	background: var(--color-login-primary);
+}
+
+#nprogress .bar {
+    background: var(--color-login-primary)!important;
+}

@@ -1,0 +1,177 @@
+:root {
+    --color-dark: #444;
+    --white-color: #fff;
+
+    /* Color Pallate */
+    --color-ld-default: #f58d74;
+    --color-ld-hover: #d17761;
+
+    --color-ld-background: #fbfbfb;
+    --color-ld-gray: #f8faf9;
+    --color-border-smooth: #ddd;
+
+    --color-login-primary: #5d9dff;
+    --color-login-primary-hover: #5089dd;
+
+    --color-text-muted: #aaa
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: var(--color-dark);
+    background: var(--color-ld-background)
+}
+
+a {
+    color: var(--color-ld-default);
+    text-decoration: none;
+}
+
+
+#nprogress .bar {
+	background: var(--color-ld-default)!important;
+    position: fixed;
+	z-index: 1031;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2.8px;
+}
+
+#nprogress .bar {
+    background: var(--color-ld-default)!important;
+}
+
+#nprogress .peg,
+#nprogress .spinner {
+    display: none!important;  
+}
+
+.btn-primary-ld {
+    background: var(--color-ld-default);
+    border-color: var(--color-ld-default);
+    padding: 8px 14px
+}
+
+.btn-primary-ld:hover,
+.btn-primary-ld:focus {
+    background: var(--color-ld-hover)!important;
+    border-color: var(--color-ld-hover)!important;
+}
+
+
+.box-account-user {
+    padding: 40px 25px;
+    background: #fff;
+    max-width: 500px;
+    width: calc(100% - 30px);
+    margin: 5em auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #eee;
+}
+
+.box-account-user .form-control {
+    padding: 8px 12px;
+    border: none;
+    border-bottom: 1px solid var(--color-border-smooth);
+    border-radius: 0;
+}
+
+.box-account-user .form-control::placeholder {
+    color: var(--color-text-muted)
+}
+
+.box-account-user .form-control:focus,
+.box-account-user .form-control:focus + .input-group-text {
+    box-shadow: none;
+    border-bottom: 2px solid var(--color-login-primary);
+}
+
+.box-account-user a:not(.buat-akun) {
+    color: var(--color-login-primary);
+}
+
+.box-account-user a:hover {
+    text-decoration: underline;
+}
+
+.box-account-user .title {
+    text-align: center;
+}
+
+.box-account-user .title h3 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.box-account-user a.buat-akun {
+    color: var(--color-dark);
+}
+
+.box-account-user .btn-primary-ld {
+    background: var(--color-login-primary);
+    border-color: var(--color-login-primary);
+    padding: 10px
+}
+
+.box-account-user .form-control.is-invalid,
+.box-account-user .form-control.is-invalid + .input-group-text {
+    border-color: var(--bs-form-invalid-color);
+}
+
+.box-account-user .form-control:disabled + .input-group-text
+{
+    background: var(--bs-secondary-bg);
+}
+
+.box-account-user .btn-primary-ld:hover,
+.box-account-user .btn-primary-ld:focus {
+    background: var(--color-login-primary-hover)!important;
+    border-color: var(--color-login-primary-hover)!important
+}
+
+.box-account-user .show-pass {
+    background: var(--white-color);
+    border: none;
+    border-bottom: 1px solid var(--color-border-smooth);
+    border-radius: 0;
+}
+
+.box-account-user .show-pass .img-show-pass {
+    width: 18px;
+    height: 18px;
+}
+
+.loader-full {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.loader-full img {
+    width: 40px;
+    height: 40px;
+}
+
+.internal-server-error {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.internal-server-error img {
+    max-width: 350px;
+    width: 100%;
+}
+
+.internal-server-error .title {
+    font-size: 20px;
+}
