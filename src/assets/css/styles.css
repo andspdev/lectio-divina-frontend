@@ -157,7 +157,7 @@ a {
     height: 40px;
 }
 
-.internal-server-error {
+.content-center-full {
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
@@ -167,11 +167,11 @@ a {
     transform: translate(-50%, -50%);
 }
 
-.internal-server-error img {
+.content-center-full img {
     max-width: 350px;
     width: 100%;
 }
 
-.internal-server-error .title {
+.content-center-full .title {
     font-size: 20px;
 }

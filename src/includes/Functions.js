@@ -9,5 +9,10 @@ export const checkEmailIsValid = (email) =>
 
 export const checkPasswordIsValid = (password) =>
 {
-  return /^(?=.*[!@#$%^&*()_+{}[\]:;<>,.?/\\]).{6,}$/.test(password)
+  return /^(?=.*[!@#$%^&*()_+{}[\]:;<>,.?/\\]).{6,18}$/.test(password)
+}
+
+export const checkNamaLengkapIsValid = (nama) =>
+{
+	return /^[a-zA-Z.'\s,]{1,}$/.test(nama)
 }
