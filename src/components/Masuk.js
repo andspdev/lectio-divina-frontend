@@ -10,7 +10,7 @@ import NProgress from "nprogress";
 import '../assets/css/nprogress-auth.css'
 
 import LoaderFull from "../includes/LoaderFull";
-import InternalServerError from "./InternalServerError";
+import InternalServerError from "./errors/InternalServerError";
 
 
 const Masuk = () =>
@@ -33,7 +33,7 @@ const Masuk = () =>
 
         // Lainnya
         show_pass: false,
-        proses_login: false,
+        proses_submit_form: false,
         api_error: false,
 
     })
@@ -48,7 +48,9 @@ const Masuk = () =>
 
         // Check User
         // API Login
-
+        // Membatalkan aksi
+        return () => NProgress.done()
+        
     }, [ stateGlobal, stateLocal ])
 
 
@@ -118,7 +120,7 @@ const Masuk = () =>
             
             setStateLocal(prevState => ({
                 ...prevState,
-                proses_login: !stateLocal.proses_login
+                proses_submit_form: !stateLocal.proses_submit_form
             }))
 
 
@@ -163,7 +165,7 @@ const Masuk = () =>
                             <div className="mb-4">
                                 <label htmlFor="email" className="form-label">Email</label>
                                 <input type="email" className={'form-control' + (stateLocal.error_email !== '' ? ' is-invalid' : '')} id="email" placeholder="Masukkan email Anda"
-                                onChange={(e) => inputEmailHandler(e)} disabled={stateLocal.proses_login} />
+                                onChange={(e) => inputEmailHandler(e)} disabled={stateLocal.proses_submit_form} />
         
                                 {stateLocal.error_email !== '' ? (
                                     <div className="invalid-feedback d-block">
@@ -177,7 +179,7 @@ const Masuk = () =>
                             <div className="mb-3">
                                 <div className="input-group">
                                     <input type={stateLocal.show_pass ? 'text' : 'password'} id="password" className={'form-control' + (stateLocal.error_password !== '' ? ' is-invalid' : '')} placeholder="Masukkan kata sandi Anda"
-                                    onChange={(e) => inputPasswordHandler(e)} disabled={stateLocal.proses_login} />
+                                    onChange={(e) => inputPasswordHandler(e)} disabled={stateLocal.proses_submit_form} />
         
                                     <div className="input-group-text show-pass">
                                         <a href="#show_pass" onClick={(e) => showPassHandler(e)}>
@@ -204,7 +206,16 @@ const Masuk = () =>
                             </div>
         
                             <div className="d-grid mb-5">
-                                <button className="btn btn-primary btn-primary-ld" disabled={stateLocal.proses_login}>Masuk</button>
+                                <button className="btn btn-primary btn-primary-ld" disabled={stateLocal.proses_submit_form || 
+                                    !(stateLocal.is_valid_email &&
+                                    stateLocal.is_valid_pass)
+                                }>
+                                    {
+                                        stateLocal.proses_submit_form ? (
+                                            <span className="spinner-border spinner-border-sm"></span>
+                                        ) : 'Masuk'
+                                    }
+                                </button>
                             </div>
                         </form>
         
