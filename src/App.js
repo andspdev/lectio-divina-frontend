@@ -1,5 +1,5 @@
-import { Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Suspense, useEffect } from 'react'
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.js'
@@ -16,10 +16,17 @@ import LoaderFull from "./includes/LoaderFull"
 import NotFound from './components/errors/NotFound'
 import Daftar from './components/Daftar'
 import { CoresInti } from './includes/CoresInti'
+import Dashboard from './components/user_login/Dashboard'
+import { LayoutLogin } from './components/user_login/includes/LayoutLogin'
 
 
 const App = () =>
 {
+    const [ stateLocal, setStateLocal ] = useState({
+        check_user_login: false,
+        is_login_user: true
+    })
+
     const [ state, setState ] = useState(GlobalState)
 
     return(
@@ -29,9 +36,46 @@ const App = () =>
                         <CoresInti>
                             <Routes>
                                 <Route path="/" element={<Beranda/>} />
-                                <Route path="/masuk" element={<Masuk />} />
-                                <Route path="/lupa-sandi" element={null} />
-                                <Route path="/daftar" element={<Daftar/>} />
+                                {
+                                    stateLocal.check_user_login ? (
+                                        <Route path='*' element={<LoaderFull />}/>
+                                    ) : (
+                                        <>
+                                            <Route path='/'>
+                                                {
+                                                    stateLocal.is_login_user ? (
+                                                        <Route path='*' element={<Navigate to={state.path_user_login + '/dasbor'} />} />
+                                                    ) : (
+                                                        <>
+                                                            <Route path="/masuk" element={<Masuk />} />
+                                                            <Route path="/lupa-sandi" element={null} />
+                                                            <Route path="/daftar" element={<Daftar/>} />
+                                                        </>
+                                                    )
+                                                }
+                                            </Route>
+
+
+                                            {/** User Login */}
+                                            <Route path={state.path_user_login}>
+                                                {stateLocal.is_login_user ? (
+                                                    <>
+                                                        <Route path='*' element={<LayoutLogin />}>
+                                                            <Route path='dasbor' element={<Dashboard />} />
+                                                            <Route path='alkitab' element={null} />
+
+                                                            {/* Not Found */}
+                                                            <Route path="*" element={<Navigate to="dasbor" />} />
+                                                        </Route>
+
+                                                    </>
+                                                ) : (
+                                                    <Route path='*' element={<Navigate to="/masuk" />}/>
+                                                )}
+                                            </Route>
+                                        </>
+                                    )
+                                }
                                 <Route path="*" element={<NotFound />} />
                             </Routes>
                         </CoresInti>

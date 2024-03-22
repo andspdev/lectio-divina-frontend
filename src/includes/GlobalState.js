@@ -10,7 +10,9 @@ export const GlobalState = {
     api: {
         url: "http://www.google.com"
     },
-    bacaan_terload: []
+    bacaan_terload: [],
+    fetch_user: 's',
+    path_user_login: '/user-login'
 }
 
 export const Context = createContext()

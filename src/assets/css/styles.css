@@ -8,12 +8,33 @@
 
     --color-ld-background: #fbfbfb;
     --color-ld-gray: #f8faf9;
-    --color-border-smooth: #ddd;
+    --color-ld-gray-dark: #f0f0f0;
+
+    --color-border-smooth: #eee;
 
     --color-login-primary: #5d9dff;
     --color-login-primary-hover: #5089dd;
 
-    --color-text-muted: #aaa
+    --color-text-muted: #aaa;
+
+    --width-sidebar: 280px;
+    --width-content-sidebar: 310px
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 body {
@@ -46,6 +67,158 @@ a {
 #nprogress .peg,
 #nprogress .spinner {
     display: none!important;  
+}
+
+.navbar-ld {
+    background: var(--color-ld-default);
+    border-bottom: var(--color-ld-hover) 1px solid;
+    color: white;
+    height: 60px;
+    padding: 16px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    box-shadow: 0 4px 8px 0 rgba(157, 157, 157, 0.5);
+}
+
+.navbar-ld .btn-show-sidebar {
+    width: 25px;
+    height: 25px;
+}
+
+.navbar-ld .content-title {
+    margin-left: var(--width-content-sidebar);
+}
+
+.navbar-ld .content-title h3 {
+    font-size: 20px;
+    margin: 0;
+    display: inline-block;
+}
+
+.backdrop-sidebar-show {
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.sidebar-left {
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: var(--width-sidebar);
+    border-right: 1px solid var(--color-border-smooth);
+    color: var(--color-dark);
+    z-index: 1000;
+    font-size: 14px;
+}
+
+.sidebar-left .logo {
+    padding: 10px;
+    height: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-border-smooth);
+    text-align: center;
+}
+
+.sidebar-left .menu-sidebar {
+    height: calc(100% - 150px);
+    overflow: auto;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-border-smooth);
+}
+
+.sidebar-left .menu-sidebar a {
+    color: var(--color-dark);
+    font-weight: bold;
+    padding: 15px 20px;
+    padding-left: 65px;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.sidebar-left .menu-sidebar a .icon {
+    width: 22px;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    left: 25px;
+}
+
+.sidebar-left .menu-sidebar a .icon.alkitab,
+.sidebar-left .menu-sidebar a .icon.faq {
+    width: 19px;
+    left: 26px
+}
+
+.sidebar-left .menu-sidebar a .icon.pengaturan {
+    width: 20px;
+}
+
+.sidebar-left .menu-sidebar hr {
+    border-top: 2px solid var(--color-border-smooth)!important;
+}
+
+.sidebar-left .menu-sidebar a:hover {
+    background: var(--color-ld-gray);
+    border-radius: 15px;
+}
+
+.sidebar-left .menu-sidebar a.active {
+    background: var(--color-ld-gray-dark);
+    border-radius: 15px;
+}
+
+.clear-header {
+    padding-top: 4em;
+}
+
+.content-wrapper {
+    margin-left: var(--width-content-sidebar);
+    padding: 20px 0;
+    padding-right: 20px;
+    word-break: break-word;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100% - 60px);
+    overflow: auto;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-ld .content-title,
+    .content-wrapper {
+        margin: 0 ;
+    }
+
+    .navbar-ld {
+        padding: 15px 20px
+    }
+
+    .content-wrapper {
+        padding: 25px 20px
+    }
+
+    .sidebar-left {
+        left: calc(var(--width-content-sidebar) * -1);
+    }
+
+    .sidebar-left.show {
+        left: 0;
+    }
 }
 
 .btn-primary-ld {
