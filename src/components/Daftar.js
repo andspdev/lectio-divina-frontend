@@ -50,8 +50,6 @@ const Daftar = () =>
     {
         document.title = `Daftar | ${stateGlobal.web.title}`
 
-        // Membatalkan aksi
-        return () => NProgress.done()
     }, [ stateGlobal ])
 
 
@@ -167,8 +165,7 @@ const Daftar = () =>
             stateLocal.is_valid_nama_lengkap && 
             stateLocal.is_valid_konfirmasi)
         {
-            NProgress.start()
-            
+
             setStateLocal(prevState => ({
                 ...prevState,
                 proses_submit_form: !stateLocal.proses_submit_form

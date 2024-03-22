@@ -49,8 +49,7 @@ const Masuk = () =>
         // Check User
         // API Login
         // Membatalkan aksi
-        return () => NProgress.done()
-        
+
     }, [ stateGlobal, stateLocal ])
 
 
@@ -116,8 +115,7 @@ const Masuk = () =>
         if (stateLocal.is_valid_email &&
             stateLocal.is_valid_pass)
         {
-            NProgress.start()
-            
+
             setStateLocal(prevState => ({
                 ...prevState,
                 proses_submit_form: !stateLocal.proses_submit_form

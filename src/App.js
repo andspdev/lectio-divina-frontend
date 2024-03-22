@@ -15,6 +15,7 @@ import Masuk from "./components/Masuk"
 import LoaderFull from "./includes/LoaderFull"
 import NotFound from './components/errors/NotFound'
 import Daftar from './components/Daftar'
+import { CoresInti } from './includes/CoresInti'
 
 
 const App = () =>
@@ -23,17 +24,19 @@ const App = () =>
 
     return(
         <Context.Provider value={[ state, setState ]}>
-            <Suspense fallback={<LoaderFull />}>
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<Beranda/>} />
-                        <Route path="/masuk" element={<Masuk />} />
-                        <Route path="/lupa-sandi" element={null} />
-                        <Route path="/daftar" element={<Daftar/>} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </BrowserRouter>
-            </Suspense>
+                <Suspense fallback={<LoaderFull />}>
+                    <BrowserRouter>
+                        <CoresInti>
+                            <Routes>
+                                <Route path="/" element={<Beranda/>} />
+                                <Route path="/masuk" element={<Masuk />} />
+                                <Route path="/lupa-sandi" element={null} />
+                                <Route path="/daftar" element={<Daftar/>} />
+                                <Route path="*" element={<NotFound />} />
+                            </Routes>
+                        </CoresInti>
+                    </BrowserRouter>
+                </Suspense>
         </Context.Provider>
     )
 }
