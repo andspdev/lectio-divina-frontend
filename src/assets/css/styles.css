@@ -86,7 +86,7 @@ a {
     left: 0;
     top: 0;
     right: 0;
-    box-shadow: 0 4px 8px 0 rgba(157, 157, 157, 0.5);
+    box-shadow: 0 4px 8px 0 rgba(157, 157, 157, .5);
 }
 
 .navbar-ld .profile-img,
@@ -207,6 +207,7 @@ a {
 
 .sidebar-left .btn-logout {
     font-size: 14px;
+    box-shadow: 0 0 8px rgba(156, 156, 156, 0.9);
 }
 
 .sidebar-left .btn-logout img {
