@@ -18,6 +18,7 @@ import Daftar from './components/Daftar'
 import { CoresInti } from './includes/CoresInti'
 import Dashboard from './components/user_login/Dashboard'
 import { LayoutLogin } from './components/user_login/includes/LayoutLogin'
+import NotFoundUserLogin from './components/errors/NotFoundUserLogin'
 
 
 const App = () =>
@@ -36,6 +37,7 @@ const App = () =>
                         <CoresInti>
                             <Routes>
                                 <Route path="/" element={<Beranda/>} />
+
                                 {
                                     stateLocal.check_user_login ? (
                                         <Route path='*' element={<LoaderFull />}/>
@@ -64,8 +66,7 @@ const App = () =>
                                                             <Route path='dasbor' element={<Dashboard />} />
                                                             <Route path='alkitab' element={null} />
 
-                                                            {/* Not Found */}
-                                                            <Route path="*" element={<Navigate to="dasbor" />} />
+                                                            <Route path="*" element={<NotFoundUserLogin />} />
                                                         </Route>
 
                                                     </>
@@ -76,6 +77,7 @@ const App = () =>
                                         </>
                                     )
                                 }
+
                                 <Route path="*" element={<NotFound />} />
                             </Routes>
                         </CoresInti>
