@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { Context } from "../../includes/GlobalState"
 import { useOutletContext } from "react-router-dom";
 
-const Dashboard = () =>
+export const Beranda = () =>
 {
     const [, setTitle, , setMenuSelected] = useOutletContext();
     const [ stateLocal, setStateLocal ] = useState()
@@ -48,4 +48,3 @@ const Dashboard = () =>
     )
 }
 
-export default Dashboard

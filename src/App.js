@@ -16,7 +16,7 @@ import LoaderFull from "./includes/LoaderFull"
 import NotFound from './components/errors/NotFound'
 import Daftar from './components/Daftar'
 import { CoresInti } from './includes/CoresInti'
-import Dashboard from './components/user_login/Dashboard'
+import { Beranda as Dashboard } from './components/user_login/Beranda'
 import { LayoutLogin } from './components/user_login/includes/LayoutLogin'
 import NotFoundUserLogin from './components/errors/NotFoundUserLogin'
 import AlkitabIndex from './components/user_login/pages/alkitab/AlkitabIndex'
