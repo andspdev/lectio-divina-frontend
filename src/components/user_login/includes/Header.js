@@ -11,6 +11,8 @@ import ImageGear from '../.../../../../assets/images/svg/menu_sidebar/gear_light
 import ImageQuestion from '../.../../../../assets/images/svg/menu_sidebar/circle-question_light.svg'
 import ImageBracketLogout from '../.../../../../assets/images/svg/menu_sidebar/arrow-right-from-bracket_light.svg'
 
+import ImageUserIcon from '../.../../../../assets/images/svg/user-icon.svg'
+
 
 const Header = (props) => 
 {
@@ -30,10 +32,17 @@ const Header = (props) =>
 			<nav className="navbar-ld">
                 <div className="content-title">
                     <div className="d-flex align-items-center">
-                    <div className="d-block d-lg-none">
-                        <a href="#sidebar" onClick={(e) => onClickShowSidebar(e)} className="me-4"><img src={ImageBarsSidebar} className="btn-show-sidebar" alt="Show - Hide Sidebar" /></a>
-                    </div>
-                        <h3>{title}</h3>
+                        <div className="d-block d-lg-none">
+                            <a href="#sidebar" onClick={(e) => onClickShowSidebar(e)} className="me-4 open-sidebar"><img src={ImageBarsSidebar} className="btn-show-sidebar" alt="Show - Hide Sidebar" /></a>
+                        </div>
+
+                        <div className="flex-grow-1">
+                            <h3>{title}</h3>
+                        </div>
+
+                        <div className="profile-img">
+                            <img src={ImageUserIcon} alt="User Profile" />
+                        </div>
                     </div>
 
                 </div>

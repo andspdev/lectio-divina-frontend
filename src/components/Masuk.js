@@ -6,7 +6,6 @@ import { checkEmailIsValid, checkPasswordIsValid } from "../includes/Functions";
 import ImageEye from '../assets/images/svg/eye-light.svg'
 import ImageEyeSlash from '../assets/images/svg/eye-slash-light.svg'
 
-import NProgress from "nprogress";
 import '../assets/css/nprogress-auth.css'
 
 import LoaderFull from "../includes/LoaderFull";
