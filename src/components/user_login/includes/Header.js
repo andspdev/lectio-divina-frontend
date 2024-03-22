@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../../../includes/GlobalState";
 
 import ImageBarsSidebar from '../../../assets/images/svg/bars-navbar-outlined.svg'
 import ImageHouse from '../.../../../../assets/images/svg/menu_sidebar/house_light.svg'
@@ -7,14 +9,12 @@ import ImageHouseLove from '../.../../../../assets/images/svg/menu_sidebar/house
 import ImageUserGroup from '../.../../../../assets/images/svg/menu_sidebar/user-group_light.svg'
 import ImageGear from '../.../../../../assets/images/svg/menu_sidebar/gear_light.svg'
 import ImageQuestion from '../.../../../../assets/images/svg/menu_sidebar/circle-question_light.svg'
-
-import { Context } from "../../../includes/GlobalState";
-import { Link } from "react-router-dom";
+import ImageBracketLogout from '../.../../../../assets/images/svg/menu_sidebar/arrow-right-from-bracket_light.svg'
 
 
-const Header = ({ title }) => 
+const Header = (props) => 
 {
-    const [menuSelected, setMenuSelected] = useState('dasbor')
+    const { title, menuSelected } = props
     const [showSidebar, setShowSidebar] = useState(false)
     const [stateGlobal] = useContext(Context)
 
@@ -23,13 +23,6 @@ const Header = ({ title }) =>
         e.preventDefault()
         setShowSidebar(!showSidebar)
     }
-
-    const onMenuSelected = (value) =>
-    {
-        setMenuSelected(value)
-        setShowSidebar(!showSidebar)
-    }
-    
 
 	return (
 		<>
@@ -55,7 +48,7 @@ const Header = ({ title }) =>
 
                 <div className="menu-sidebar">
                     <div className="mb-3">
-                        <Link to={stateGlobal.path_user_login + ('/dasbor')} onClick={() => onMenuSelected('dasbor')}
+                        <Link to={stateGlobal.path_user_login + ('/dasbor')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'dasbor' ? 'active' : ''}>
                             <img src={ImageHouse} alt="Beranda" className="icon beranda" /> Beranda
                         </Link>
@@ -64,17 +57,17 @@ const Header = ({ title }) =>
                     <hr/>
 
                     <div className="mb-3">
-                        <Link to={stateGlobal.path_user_login + ('/alkitab')} onClick={() => onMenuSelected('alkitab')}
+                        <Link to={stateGlobal.path_user_login + ('/alkitab')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'alkitab' ? 'active' : ''}>
                             <img src={ImageBookBible} alt="Alkitab" className="icon alkitab" /> Alkitab
                         </Link>
 
-                        <Link to={stateGlobal.path_user_login + ('/my-ld')} onClick={() => onMenuSelected('my-ld')}
+                        <Link to={stateGlobal.path_user_login + ('/my-ld')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'my-ld' ? 'active' : ''}>
                             <img src={ImageHouseLove} alt="My Ld" className="icon my-ld" /> My LD
                         </Link>
 
-                        <Link to={stateGlobal.path_user_login + ('/komunitas')} onClick={() => onMenuSelected('komunitas')} 
+                        <Link to={stateGlobal.path_user_login + ('/komunitas')} onClick={() => setShowSidebar(!showSidebar)} 
                         className={menuSelected === 'komunitas' ? 'active' : ''}>
                             <img src={ImageUserGroup} alt="Komunitas" className="icon komunitas" /> Komunitas
                         </Link>
@@ -83,12 +76,12 @@ const Header = ({ title }) =>
                     <hr/>
 
                     <div className="mb-3">
-                        <Link to={stateGlobal.path_user_login + ('/pengaturan')} onClick={() => onMenuSelected('pengaturan')}
+                        <Link to={stateGlobal.path_user_login + ('/pengaturan')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'pengaturan' ? 'active' : ''}>
                             <img src={ImageGear} alt="Pengaturan" className="icon pengaturan" /> Pengaturan
                         </Link>
 
-                        <Link to={stateGlobal.path_user_login + ('/faq')} onClick={() => onMenuSelected('faq')}
+                        <Link to={stateGlobal.path_user_login + ('/faq')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'faq' ? 'active' : ''}>
                             <img src={ImageQuestion} alt="Pengaturan" className="icon faq" /> FAQ
                         </Link>
@@ -98,8 +91,8 @@ const Header = ({ title }) =>
 
                 <div className="py-4 px-3">
                     <div className="d-grid">
-                        <button className="btn btn-primary btn-primary-ld">
-                            Keluar
+                        <button className="btn btn-primary btn-primary-ld btn-logout">
+                            <img src={ImageBracketLogout} alt="Keluar" className="icon me-2" /> Keluar
                         </button>
                     </div>
                 </div>

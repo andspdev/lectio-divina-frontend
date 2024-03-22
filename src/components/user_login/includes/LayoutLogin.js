@@ -1,18 +1,24 @@
-import { Outlet } from "react-router-dom"
 import Header from "./Header"
+import { Outlet } from "react-router-dom"
 import { useState } from "react";
 
 export const LayoutLogin = () =>
 {
-    const [titleHeader, setTitleHeader] = useState("...");
+    const [title, setTitle] = useState("...");
+    const [menuSelected, setMenuSelected] = useState();
+    const [sidebarOpen, setSidebarOpen] = useState();
 
     return(
         <>
-            <Header title={titleHeader} />
+            <Header title={title} menuSelected={menuSelected} />
             <div className="clear-header"></div>
 
             <div className="content-wrapper">
-                <Outlet context={{ setTitleHeader }}/>        
+                <Outlet context={[
+                    title, setTitle,
+                    menuSelected, setMenuSelected,
+                    sidebarOpen, setSidebarOpen
+                ]}/>        
             </div>
         </>
     )

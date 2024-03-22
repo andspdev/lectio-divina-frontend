@@ -10,13 +10,13 @@ const NotFound = () =>
     
     useEffect(() =>
     {
-        document.title = `Halaman Tidak Ada | ${stateGlobal.web.title}`
+        document.title = `Halaman Tidak Ditemukan | ${stateGlobal.web.title}`
     }, [ stateGlobal ])
 
     return(
         <div className="content-center-full text-center">
             <img src={ImageInternalServerError} alt="Not Found" className='mb-4' />
-            <h3 className='title'>Halaman Tidak Ada</h3>
+            <h3 className='title'>Halaman Tidak Ditemukan</h3>
 
             <div className='mt-4'>
                 <p>Halaman yang Anda cari tidak dapat ditemukan atau sedang dalam perbaikan.</p>

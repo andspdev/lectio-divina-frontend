@@ -19,6 +19,7 @@ import { CoresInti } from './includes/CoresInti'
 import Dashboard from './components/user_login/Dashboard'
 import { LayoutLogin } from './components/user_login/includes/LayoutLogin'
 import NotFoundUserLogin from './components/errors/NotFoundUserLogin'
+import AlkitabIndex from './components/user_login/pages/alkitab/AlkitabIndex'
 
 
 const App = () =>
@@ -43,19 +44,17 @@ const App = () =>
                                         <Route path='*' element={<LoaderFull />}/>
                                     ) : (
                                         <>
-                                            <Route path='/'>
-                                                {
-                                                    stateLocal.is_login_user ? (
-                                                        <Route path='*' element={<Navigate to={state.path_user_login + '/dasbor'} />} />
-                                                    ) : (
-                                                        <>
-                                                            <Route path="/masuk" element={<Masuk />} />
-                                                            <Route path="/lupa-sandi" element={null} />
-                                                            <Route path="/daftar" element={<Daftar/>} />
-                                                        </>
-                                                    )
-                                                }
-                                            </Route>
+                                            {
+                                                stateLocal.is_login_user ? (
+                                                    <Route path='*' element={<Navigate to={state.path_user_login + '/dasbor'} />} />
+                                                ) : (
+                                                    <>
+                                                        <Route path="/masuk" element={<Masuk />} />
+                                                        <Route path="/lupa-sandi" element={null} />
+                                                        <Route path="/daftar" element={<Daftar/>} />
+                                                    </>
+                                                )
+                                            }
 
 
                                             {/** User Login */}
@@ -64,7 +63,7 @@ const App = () =>
                                                     <>
                                                         <Route path='*' element={<LayoutLogin />}>
                                                             <Route path='dasbor' element={<Dashboard />} />
-                                                            <Route path='alkitab' element={null} />
+                                                            <Route path='alkitab' element={<AlkitabIndex/>} />
 
                                                             <Route path="*" element={<NotFoundUserLogin />} />
                                                         </Route>
@@ -77,7 +76,7 @@ const App = () =>
                                         </>
                                     )
                                 }
-
+                                
                                 <Route path="*" element={<NotFound />} />
                             </Routes>
                         </CoresInti>

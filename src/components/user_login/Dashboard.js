@@ -4,7 +4,7 @@ import { useOutletContext } from "react-router-dom";
 
 const Dashboard = () =>
 {
-    const { setTitleHeader } = useOutletContext();
+    const [, setTitle, , setMenuSelected] = useOutletContext();
     const [ stateLocal, setStateLocal ] = useState()
     const [ stateGlobal ] = useContext(Context)
 
@@ -12,9 +12,11 @@ const Dashboard = () =>
     {
         const title = 'Dasbor'
         document.title = `${title} | ${stateGlobal.web.title}`
-        setTitleHeader(title)
 
-    }, [ stateLocal, stateGlobal, setTitleHeader ])
+        setTitle('Dasbor')
+        setMenuSelected('dasbor')
+
+    }, [ stateLocal, stateGlobal, setTitle, setMenuSelected ])
 
     return(
         <>
