@@ -155,6 +155,10 @@ a {
     text-align: center;
 }
 
+.sidebar-left .logo a {
+    color: var(--color-dark);
+}
+
 .sidebar-left .logo .ld {
     width: 45px;
     height: auto;
