@@ -54,8 +54,10 @@ const Header = (props) =>
             {/* Sidebar */}
             <div className={"sidebar-left" + (showSidebar ? ' show' : '')}>
                 <div className="logo">
-                    <img src={ImageLogoLD} alt="Logo LD" className="ld me-2" />
-                    Lectio Divina
+                    <Link to={path_user + ('/beranda')}>
+                        <img src={ImageLogoLD} alt="Logo LD" className="ld me-2" />
+                        Lectio Divina
+                    </Link>
                 </div>
 
                 <div className="menu-sidebar">
