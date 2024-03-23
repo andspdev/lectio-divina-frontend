@@ -65,7 +65,7 @@ const Header = (props) =>
             {/* Sidebar */}
             <div className={"sidebar-left" + (showSidebar ? ' show' : '')}>
                 <div className="logo">
-                    <Link to={path_user + ('/beranda')}>
+                    <Link to={path_user + ('/beranda')} onClick={() => setShowSidebar(!showSidebar)}>
                         <img src={ImageLogoLD} alt="Logo LD" className="ld me-2" />
                         Lectio Divina
                     </Link>
