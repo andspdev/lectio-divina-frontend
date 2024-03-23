@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../../includes/GlobalState";
 
@@ -13,12 +13,15 @@ import ImageBracketLogout from '../.../../../../assets/images/svg/menu_sidebar/a
 import ImageUserIcon from '../.../../../../assets/images/svg/user-icon.svg'
 import ImageLogoLD from '../../../assets/images/svg/logo-ld.svg'
 
+import bootstrap from 'bootstrap/dist/js/bootstrap'
 
 const Header = (props) => 
 {
+    const refModalLogout = useRef()
     const { title, menuSelected } = props
     const [showSidebar, setShowSidebar] = useState(false)
     const [stateGlobal] = useContext(Context)
+    const path_user = stateGlobal.path_user_login
 
     const onClickShowSidebar = (e) =>
     {
@@ -26,7 +29,15 @@ const Header = (props) =>
         setShowSidebar(!showSidebar)
     }
 
-    const path_user = stateGlobal.path_user_login
+
+    const onLogoutClicked = (e) =>
+    {
+        e.preventDefault()
+        setShowSidebar(!showSidebar)
+
+        const modalLogout = new bootstrap.Modal(refModalLogout.current)
+        modalLogout.show()
+    }
 
 	return (
 		<>
@@ -70,7 +81,7 @@ const Header = (props) =>
                                 <div className="name">
                                     <b>Nama Pengguna</b><br/>
                                 </div>
-                                <Link to={path_user + ('/profil')}>Lihat Profil</Link>
+                                <Link to={path_user + ('/profil')} onClick={() => setShowSidebar(!showSidebar)}>Lihat Profil</Link>
                             </div>
                         </div>
                     </div>
@@ -119,7 +130,7 @@ const Header = (props) =>
 
                 <div className="py-4 px-3">
                     <div className="d-grid">
-                        <button className="btn btn-primary btn-primary-ld btn-logout">
+                        <button className="btn btn-primary btn-primary-ld btn-logout" onClick={(e) => onLogoutClicked(e)}>
                             <img src={ImageBracketLogout} alt="Keluar" className="icon me-2" /> Keluar
                         </button>
                     </div>
@@ -131,7 +142,25 @@ const Header = (props) =>
                     <div className="backdrop-sidebar-show" onClick={(e) => onClickShowSidebar(e)}></div>
                 </div>
             ) : ''}
-            
+
+           <div className="modal fade" ref={refModalLogout}>
+                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Mengakhiri Sesi</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div className="modal-body">
+                            Apakah Anda ingin keluar dan mengakhiri sesi pada akun?
+                        </div>
+
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-danger">Keluar</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
 		</>
 	);
 };
