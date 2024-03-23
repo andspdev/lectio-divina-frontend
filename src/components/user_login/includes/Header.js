@@ -10,8 +10,8 @@ import ImageUserGroup from '../.../../../../assets/images/svg/menu_sidebar/user-
 import ImageGear from '../.../../../../assets/images/svg/menu_sidebar/gear_light.svg'
 import ImageQuestion from '../.../../../../assets/images/svg/menu_sidebar/circle-question_light.svg'
 import ImageBracketLogout from '../.../../../../assets/images/svg/menu_sidebar/arrow-right-from-bracket_light.svg'
-
 import ImageUserIcon from '../.../../../../assets/images/svg/user-icon.svg'
+import ImageLogoLD from '../../../assets/images/svg/logo-ld.svg'
 
 
 const Header = (props) => 
@@ -25,6 +25,8 @@ const Header = (props) =>
         e.preventDefault()
         setShowSidebar(!showSidebar)
     }
+
+    const path_user = stateGlobal.path_user_login
 
 	return (
 		<>
@@ -41,7 +43,7 @@ const Header = (props) =>
                         </div>
 
                         <div className="profile-img">
-                            <img src={ImageUserIcon} alt="User Profile" />
+                            <Link to={path_user + ('/profil')}><img src={ImageUserIcon} alt="User Profile" /></Link>
                         </div>
                     </div>
 
@@ -52,12 +54,27 @@ const Header = (props) =>
             {/* Sidebar */}
             <div className={"sidebar-left" + (showSidebar ? ' show' : '')}>
                 <div className="logo">
+                    <img src={ImageLogoLD} alt="Logo LD" className="ld me-2" />
                     Lectio Divina
                 </div>
 
                 <div className="menu-sidebar">
+
+                    <div className="user-detail mb-4">
+                        <div className="d-flex align-items-center">
+                            <img src={ImageUserIcon} alt="User Icon" className="img-user me-3" />
+
+                            <div className="flex-grow-1">
+                                <div className="name">
+                                    <b>Nama Pengguna</b><br/>
+                                </div>
+                                <Link to={path_user + ('/profil')}>Lihat Profil</Link>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="mb-3">
-                        <Link to={stateGlobal.path_user_login + ('/dasbor')} onClick={() => setShowSidebar(!showSidebar)}
+                        <Link to={path_user + ('/beranda')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'dasbor' ? 'active' : ''}>
                             <img src={ImageHouse} alt="Beranda" className="icon beranda" /> Beranda
                         </Link>
@@ -66,17 +83,17 @@ const Header = (props) =>
                     <hr/>
 
                     <div className="mb-3">
-                        <Link to={stateGlobal.path_user_login + ('/alkitab')} onClick={() => setShowSidebar(!showSidebar)}
+                        <Link to={path_user + ('/alkitab')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'alkitab' ? 'active' : ''}>
                             <img src={ImageBookBible} alt="Alkitab" className="icon alkitab" /> Alkitab
                         </Link>
 
-                        <Link to={stateGlobal.path_user_login + ('/my-ld')} onClick={() => setShowSidebar(!showSidebar)}
+                        <Link to={path_user + ('/my-ld')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'my-ld' ? 'active' : ''}>
                             <img src={ImageHouseLove} alt="My Ld" className="icon my-ld" /> My LD
                         </Link>
 
-                        <Link to={stateGlobal.path_user_login + ('/komunitas')} onClick={() => setShowSidebar(!showSidebar)} 
+                        <Link to={path_user + ('/komunitas')} onClick={() => setShowSidebar(!showSidebar)} 
                         className={menuSelected === 'komunitas' ? 'active' : ''}>
                             <img src={ImageUserGroup} alt="Komunitas" className="icon komunitas" /> Komunitas
                         </Link>
@@ -85,12 +102,12 @@ const Header = (props) =>
                     <hr/>
 
                     <div className="mb-3">
-                        <Link to={stateGlobal.path_user_login + ('/pengaturan')} onClick={() => setShowSidebar(!showSidebar)}
+                        <Link to={path_user + ('/pengaturan')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'pengaturan' ? 'active' : ''}>
                             <img src={ImageGear} alt="Pengaturan" className="icon pengaturan" /> Pengaturan
                         </Link>
 
-                        <Link to={stateGlobal.path_user_login + ('/faq')} onClick={() => setShowSidebar(!showSidebar)}
+                        <Link to={path_user + ('/faq')} onClick={() => setShowSidebar(!showSidebar)}
                         className={menuSelected === 'faq' ? 'active' : ''}>
                             <img src={ImageQuestion} alt="Pengaturan" className="icon faq" /> FAQ
                         </Link>

@@ -3,13 +3,14 @@ import { Context } from "../includes/GlobalState"
 import { Link, useNavigate } from 'react-router-dom'
 import { checkEmailIsValid, checkPasswordIsValid } from "../includes/Functions";
 
-import ImageEye from '../assets/images/svg/eye-light.svg'
-import ImageEyeSlash from '../assets/images/svg/eye-slash-light.svg'
-
 import '../assets/css/nprogress-auth.css'
 
 import LoaderFull from "../includes/LoaderFull";
 import InternalServerError from "./errors/InternalServerError";
+
+import ImageEye from '../assets/images/svg/eye-light.svg'
+import ImageEyeSlash from '../assets/images/svg/eye-slash-light.svg'
+import ImageLogoLD from '../assets/images/svg/logo-ld.svg'
 
 
 const Masuk = () =>
@@ -122,7 +123,7 @@ const Masuk = () =>
 
 
             // API Login
-            navigate('/user-login/dasbor')
+            navigate(stateGlobal.path_user_login+'/beranda')
         }
     }
     // End Login check
@@ -148,6 +149,11 @@ const Masuk = () =>
             // Lainnya
             (
                 <div className="box-account-user">
+
+                    <div className="logo-form mb-4">
+                        <img src={ImageLogoLD} alt="Logo LD" />
+                    </div>
+
                     <div className="title mb-5">
                         <h3>{stateGlobal.web.app_name}</h3>
                     </div>

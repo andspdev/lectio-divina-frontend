@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 
 import ImageEye from '../assets/images/svg/eye-light.svg'
 import ImageEyeSlash from '../assets/images/svg/eye-slash-light.svg'
-import NProgress from "nprogress"
+import ImageLogoLD from '../assets/images/svg/logo-ld.svg'
 
 
 const Daftar = () =>
@@ -193,6 +193,10 @@ const Daftar = () =>
 
             (
                 <div className="box-account-user">
+                    <div className="logo-form mb-4">
+                        <img src={ImageLogoLD} alt="Logo LD" />
+                    </div>
+
                     <div className="title mb-5">
                         <h3>{stateGlobal.web.app_name}</h3>
                     </div>

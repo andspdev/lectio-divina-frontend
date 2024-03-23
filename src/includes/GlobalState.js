@@ -12,7 +12,7 @@ export const GlobalState = {
     },
     bacaan_terload: [],
     fetch_user: 's',
-    path_user_login: '/user-login'
+    path_user_login: '/pengguna'
 }
 
 export const Context = createContext()

@@ -62,7 +62,7 @@ const App = () =>
                                                 {stateLocal.is_login_user ? (
                                                     <>
                                                         <Route path='*' element={<LayoutLogin />}>
-                                                            <Route path='dasbor' element={<Dashboard />} />
+                                                            <Route path='beranda' element={<Dashboard />} />
                                                             <Route path='alkitab' element={<AlkitabIndex/>} />
 
                                                             <Route path="*" element={<NotFoundUserLogin />} />
