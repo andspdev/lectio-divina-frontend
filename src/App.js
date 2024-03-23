@@ -37,7 +37,7 @@ const App = () =>
                     <BrowserRouter>
                         <CoresInti>
                             <Routes>
-                                <Route path="/" element={<Beranda/>} />
+                                <Route path="/" element={<Navigate to={'/masuk'} />} />
 
                                 {
                                     stateLocal.check_user_login ? (
