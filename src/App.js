@@ -46,7 +46,7 @@ const App = () =>
                                         <>
                                             {
                                                 stateLocal.is_login_user ? (
-                                                    <Route path='*' element={<Navigate to={state.path_user_login + '/dasbor'} />} />
+                                                    <Route path='*' element={<Navigate to={state.path_user_login + '/beranda'} />} />
                                                 ) : (
                                                     <>
                                                         <Route path="/masuk" element={<Masuk />} />
